@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Compatibilidade com links antigos que ainda incluem /clube/. A aplicação
+# deste subdomínio está publicada na raiz, portanto /clube/modules/... deve
+# apontar para /modules/... sem afetar arquivos ou regras do WordPress.
+RewriteRule ^clube/?$ / [R=302,L]
+RewriteRule ^clube/(.+)$ /$1 [R=302,L,NE]

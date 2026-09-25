@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual do Sistema de Clube</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1 { color: #667eea; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; background: #f0f2f5; padding: 10px; }
+        h3 { color: #48bb78; margin-top: 25px; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #667eea; color: white; }
+        code { background: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
+        .note { background: #fff3cd; padding: 15px; border-left: 4px solid #ffc107; margin: 15px 0; }
+        .warning { background: #f8d7da; padding: 15px; border-left: 4px solid #dc3545; margin: 15px 0; }
+        .success { background: #d4edda; padding: 15px; border-left: 4px solid #28a745; margin: 15px 0; }
+        .toc { background: #f8f9fa; padding: 20px; margin: 20px 0; }
+        .toc ul { columns: 2; }
+        @media print {
+            body { margin: 20px; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="text-align: center; margin-bottom: 20px;">
+        <button onclick="window.print()">🖨️ Imprimir / Salvar como PDF</button>
+        <button onclick="copyToWord()">📋 Copiar para Word</button>
+    </div>
+
+    <h1>📚 MANUAL COMPLETO DO SISTEMA DE CLUBE</h1>
+    <p><strong>Versão 2.0 | Atualizado em Abril/2026</strong></p>
+
+    <div class="toc">
+        <h2>ÍNDICE</h2>
+        <ul>
+            <li><a href="#intro">1. Introdução</a></li>
+            <li><a href="#instalacao">2. Instalação e Configuração</a></li>
+            <li><a href="#primeiro-acesso">3. Primeiro Acesso</a></li>
+            <li><a href="#socios">4. Módulo de Sócios</a></li>
+            <li><a href="#carteirinhas">5. Módulo de Carteirinhas</a></li>
+            <li><a href="#convites">6. Módulo de Convites</a></li>
+            <li><a href="#relatorios">7. Módulo de Relatórios</a></li>
+            <li><a href="#terceiros">8. Módulo de Terceiros</a></li>
+            <li><a href="#configuracoes">9. Configurações do Sistema</a></li>
+            <li><a href="#dashboard">10. Painel Principal (Dashboard)</a></li>
+            <li><a href="#permissoes">11. Permissões e Usuários</a></li>
+            <li><a href="#problemas">12. Solução de Problemas</a></li>
+            <li><a href="#faq">13. Perguntas Frequentes</a></li>
+            <li><a href="#glossario">14. Glossário</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 1. INTRODUÇÃO -->
+    <!-- ============================================ -->
+    <h2 id="intro">1. INTRODUÇÃO</h2>
+
+    <h3>1.1 Sobre o Sistema</h3>
+    <p>O <strong>Sistema de Clube</strong> é uma plataforma completa para gestão de clubes, associações e condomínios. Permite o cadastro de sócios, emissão de carteirinhas com QR Code, controle de convites, gestão financeira e muito mais.</p>
+
+    <h3>1.2 Principais Funcionalidades</h3>
+    <table>
+        <thead>
+            <tr><th>Funcionalidade</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>👥 Cadastro de Sócios</td><td>Cadastro completo com foto, dados pessoais e vínculos familiares</td></tr>
+            <tr><td>🎫 Carteirinhas Digitais</td><td>Geração de carteirinhas com QR Code ou código de barras</td></tr>
+            <tr><td>👨‍👩‍👧‍👦 Controle Familiar</td><td>Dependentes vinculados ao sócio principal, convites compartilhados</td></tr>
+            <tr><td>🎟️ Sistema de Convites</td><td>Convites mensais compartilhados por família</td></tr>
+            <tr><td>📊 Relatórios</td><td>Exportação de dados e gráficos estatísticos</td></tr>
+            <tr><td>🎨 Personalização</td><td>Cores por tipo de sócio, marca d'água personalizada</td></tr>
+            <tr><td>🔐 Controle de Acesso</td><td>Validação de carteirinhas com verificação de débitos</td></tr>
+        </tbody>
+    </table>
+
+    <h3>1.3 Requisitos do Sistema</h3>
+    <ul>
+        <li><strong>Servidor:</strong> XAMPP / WAMP / LAMP</li>
+        <li><strong>PHP:</strong> Versão 7.4 ou superior</li>
+        <li><strong>MySQL:</strong> Versão 5.7 ou superior</li>
+        <li><strong>Navegador:</strong> Chrome, Firefox, Edge (últimas versões)</li>
+    </ul>
+
+    <!-- ============================================ -->
+    <!-- 2. INSTALAÇÃO -->
+    <!-- ============================================ -->
+    <h2 id="instalacao">2. INSTALAÇÃO E CONFIGURAÇÃO</h2>
+
+    <h3>2.1 Instalação no XAMPP</h3>
+    <div class="note">
+        <strong>Passo a passo:</strong>
+        <ol>
+            <li>Baixe ou copie todos os arquivos para: <code>C:\xampp\htdocs\clube\</code></li>
+            <li>Inicie o XAMPP e ative Apache e MySQL</li>
+            <li>Acesse phpMyAdmin: <code>http://localhost/phpmyadmin</code></li>
+            <li>Crie o banco de dados: <strong>clube_sistema</strong> (utf8mb4_unicode_ci)</li>
+            <li>Importe o arquivo SQL fornecido</li>
+            <li>Acesse o sistema: <code>http://localhost/clube/</code></li>
+        </ol>
+    </div>
+
+    <h3>2.2 Configuração Inicial</h3>
+    <p><strong>Criar usuário administrador:</strong></p>
+    <ul>
+        <li>Acesse: <code>http://localhost/clube/criar_admin.php</code></li>
+        <li>Ou execute no phpMyAdmin o script de criação do admin</li>
+    </ul>
+
+    <p><strong>Configurar marca d'água:</strong></p>
+    <ul>
+        <li>Acesse: <code>Configurações → Marca D'água</code></li>
+        <li>Envie a imagem do escudo do clube (PNG com fundo transparente)</li>
+    </ul>
+
+    <p><strong>Configurar cores das carteirinhas:</strong></p>
+    <ul>
+        <li>Acesse: <code>Carteirinhas → Configurar Cores</code></li>
+        <li>Defina as cores para cada tipo de sócio</li>
+    </ul>
+
+    <div class="warning">
+        <strong>⚠️ Importante:</strong> Para renovação automática de convites, configure o Cron (tarefa agendada) para executar <code>/cron/renovar_convites.php</code> todo dia 1º do mês.
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 3. PRIMEIRO ACESSO -->
+    <!-- ============================================ -->
+    <h2 id="primeiro-acesso">3. PRIMEIRO ACESSO</h2>
+
+    <h3>3.1 Tela de Login</h3>
+    <p><strong>Acesse:</strong> <code>http://localhost/clube/</code></p>
+
+    <p><strong>Credenciais padrão:</strong></p>
+    <table>
+        <tr><th>Campo</th><th>Valor</th></tr>
+        <tr><td>E-mail</td><td>admin@admin.com</td></tr>
+        <tr><td>Senha</td><td>123456</td></tr>
+    </table>
+
+    <h3>3.2 Dashboard Principal</h3>
+    <p>Após o login, você verá o <strong>Painel de Controle</strong> com:</p>
+    <ul>
+        <li>📊 Cards de estatísticas (total de sócios, convites, inadimplentes)</li>
+        <li>📈 Gráfico de sócios por tipo</li>
+        <li>🔍 Leitor de carteirinha</li>
+        <li>📋 Últimos sócios cadastrados</li>
+        <li>🎂 Aniversariantes do mês</li>
+        <li>⚡ Ações rápidas</li>
+    </ul>
+
+    <!-- ============================================ -->
+    <!-- 4. MÓDULO DE SÓCIOS -->
+    <!-- ============================================ -->
+    <h2 id="socios">4. MÓDULO DE SÓCIOS</h2>
+
+    <h3>4.1 Cadastrar um Novo Sócio</h3>
+    <p><strong>Caminho:</strong> <code>Cadastros → Sócios → Novo Sócio</code></p>
+
+    <p><strong>Passo a passo:</strong></p>
+    <ol>
+        <li><strong>Selecione o Tipo de Sócio:</strong>
+            <ul>
+                <li><code>Proprietário</code>: Cria uma nova família (chefia)</li>
+                <li><code>Dependente</code>: Vincula a um proprietário existente</li>
+                <li><code>Contribuinte</code>: Sócio contribuinte</li>
+                <li><code>Sócio Atleta</code>: Sócio com perfil esportivo</li>
+            </ul>
+        </li>
+        <li><strong>Se for DEPENDENTE:</strong>
+            <ul>
+                <li>Selecione o "Sócio Principal"</li>
+                <li>Escolha o parentesco</li>
+                <li>O título será copiado automaticamente</li>
+            </ul>
+        </li>
+        <li><strong>Preencha os Dados Pessoais</strong> (Nome, CPF, Data nascimento, etc)</li>
+        <li><strong>Informe o Endereço</strong></li>
+        <li><strong>Configure a Carteirinha</strong> (Convites, Foto, Tipo de identificação)</li>
+        <li><strong>Clique em "Cadastrar Sócio"</strong></li>
+    </ol>
+
+    <h3>4.2 Gerenciar Dependentes</h3>
+    <p><strong>Caminho:</strong> <code>Cadastros → Sócios → Clique no ícone 👥</code></p>
+
+    <h3>4.3 Editar um Sócio</h3>
+    <p><strong>Caminho:</strong> <code>Cadastros → Sócios → Clique no ícone ✏️</code></p>
+
+    <div class="warning">
+        <strong>⚠️ Atenção:</strong> A exclusão é permanente. Recomenda-se desativar o sócio em vez de excluir.
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 5. MÓDULO DE CARTEIRINHAS -->
+    <!-- ============================================ -->
+    <h2 id="carteirinhas">5. MÓDULO DE CARTEIRINHAS</h2>
+
+    <h3>5.1 Gerar Carteirinha</h3>
+    <p><strong>Caminho:</strong> <code>Carteirinhas → Gerar Carteirinha</code></p>
+
+    <h3>5.2 Validar Carteirinha (Controle de Acesso)</h3>
+    <p><strong>Caminho:</strong> <code>Dashboard → Leitor de Carteirinha</code></p>
+
+    <div class="success">
+        <strong>✅ Acesso Liberado:</strong> Sócio em dia<br>
+        <strong>⚠️ Acesso Negado:</strong> Com débitos<br>
+        <strong>📊 Convites restantes da família</strong>
+    </div>
+
+    <h3>5.3 Configurar Cores das Carteirinhas</h3>
+    <p><strong>Caminho:</strong> <code>Carteirinhas → Configurar Cores</code></p>
+
+    <table>
+        <tr><th>Tipo de Sócio</th><th>Cor Sugerida</th><th>Código</th></tr>
+        <tr><td>Proprietário</td><td>Dourado</td><td>#FFD700</td></tr>
+        <tr><td>Dependente</td><td>Azul claro</td><td>#ADD8E6</td></tr>
+        <tr><td>Contribuinte</td><td>Prata</td><td>#C0C0C0</td></tr>
+        <tr><td>Sócio Atleta</td><td>Verde claro</td><td>#90EE90</td></tr>
+    </table>
+
+    <!-- ============================================ -->
+    <!-- 6. MÓDULO DE CONVITES -->
+    <!-- ============================================ -->
+    <h2 id="convites">6. MÓDULO DE CONVITES</h2>
+
+    <h3>6.1 Como Funciona o Sistema de Convites</h3>
+    <ul>
+        <li>Cada <strong>família</strong> (proprietário + dependentes) tem um total de convites por mês</li>
+        <li>Os convites são <strong>compartilhados</strong> entre todos os membros da família</li>
+        <li>Quando um membro usa um convite, desconta do total da família</li>
+        <li>A renovação ocorre automaticamente no dia 1º de cada mês</li>
+    </ul>
+
+    <h3>6.2 Visualizar e Ajustar Convites</h3>
+    <p><strong>Caminho:</strong> <code>Convites</code></p>
+
+    <!-- ============================================ -->
+    <!-- 7. MÓDULO DE RELATÓRIOS -->
+    <!-- ============================================ -->
+    <h2 id="relatorios">7. MÓDULO DE RELATÓRIOS</h2>
+
+    <h3>7.1 Tipos de Relatórios</h3>
+    <table>
+        <tr><th>Relatório</th><th>Descrição</th><th>Formatos</th></tr>
+        <tr><td>Sócios</td><td>Lista completa de sócios</td><td>CSV, Excel, Imprimir</td></tr>
+        <tr><td>Financeiro</td><td>Mensalidades e inadimplência</td><td>CSV, Excel</td></tr>
+        <tr><td>Convites</td><td>Uso de convites por família</td><td>CSV, Excel</td></tr>
+        <tr><td>Aniversariantes</td><td>Sócios que fazem aniversário no mês</td><td>Visual</td></tr>
+    </table>
+
+    <!-- ============================================ -->
+    <!-- 8. MÓDULO DE TERCEIROS -->
+    <!-- ============================================ -->
+    <h2 id="terceiros">8. MÓDULO DE TERCEIROS</h2>
+    <p><strong>Caminho:</strong> <code>Cadastros → Terceiros</code></p>
+    <p>Serviços oferecidos por parceiros do clube: Academia, Capoeira, Natação, Judô, etc.</p>
+
+    <!-- ============================================ -->
+    <!-- 9. CONFIGURAÇÕES -->
+    <!-- ============================================ -->
+    <h2 id="configuracoes">9. CONFIGURAÇÕES DO SISTEMA</h2>
+
+    <h3>9.1 Marca D'água</h3>
+    <p><strong>Caminho:</strong> <code>Configurações → Marca D'água</code></p>
+    <p>Envie a imagem do escudo do clube (PNG com fundo transparente, 500x500px, max 2MB).</p>
+
+    <!-- ============================================ -->
+    <!-- 10. DASHBOARD -->
+    <!-- ============================================ -->
+    <h2 id="dashboard">10. PAINEL PRINCIPAL (DASHBOARD)</h2>
+    <p>O Dashboard é a primeira tela após o login, com visão geral do sistema e acesso rápido às principais funções.</p>
+
+    <!-- ============================================ -->
+    <!-- 11. PERMISSÕES -->
+    <!-- ============================================ -->
+    <h2 id="permissoes">11. PERMISSÕES E USUÁRIOS</h2>
+
+    <h3>11.1 Tipos de Permissões</h3>
+    <table>
+        <tr><th>Permissão</th><th>O que permite</th></tr>
+        <tr><td><code>cadastros</code></td><td>Cadastrar/editar sócios, terceiros, tipos</td></tr>
+        <tr><td><code>relatorios</code></td><td>Visualizar e exportar relatórios</td></tr>
+        <tr><td><code>financeiro</code></td><td>Acessar módulo financeiro</td></tr>
+        <tr><td><code>usuarios</code></td><td>Gerenciar usuários do sistema</td></tr>
+    </table>
+
+    <h3>11.2 Níveis de Acesso Sugeridos</h3>
+    <table>
+        <tr><th>Cargo</th><th>Permissões</th></tr>
+        <tr><td>Administrador</td><td>Todas</td></tr>
+        <tr><td>Secretário</td><td>cadastros, relatorios</td></tr>
+        <tr><td>Financeiro</td><td>financeiro, relatorios</td></tr>
+        <tr><td>Porteiro</td><td>Apenas leitura de carteirinhas</td></tr>
+    </table>
+
+    <!-- ============================================ -->
+    <!-- 12. SOLUÇÃO DE PROBLEMAS -->
+    <!-- ============================================ -->
+    <h2 id="problemas">12. SOLUÇÃO DE PROBLEMAS</h2>
+
+    <h3>12.1 Erro ao Fazer Login</h3>
+    <div class="note">
+        <strong>Solução:</strong> Verifique se o usuário existe no banco e se o Apache está rodando.
+    </div>
+
+    <h3>12.2 QR Code Não Aparece</h3>
+    <div class="note">
+        <strong>Solução:</strong> Execute <code>http://localhost/clube/recriar_carteirinhas.php</code> para recriar todos os QR Codes.
+    </div>
+
+    <h3>12.3 Validação Retorna "Sócio não encontrado"</h3>
+    <div class="note">
+        <strong>Solução:</strong> Verifique se o número do título está correto e se o sócio está ativo.
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 13. FAQ -->
+    <!-- ============================================ -->
+    <h2 id="faq">13. PERGUNTAS FREQUENTES</h2>
+
+    <p><strong>P: Como faço backup do sistema?</strong><br>
+    R: Copie a pasta <code>clube</code> e exporte o banco no phpMyAdmin.</p>
+
+    <p><strong>P: O sistema funciona em celular?</strong><br>
+    R: Sim! É totalmente responsivo.</p>
+
+    <p><strong>P: Os convites acumulam de um mês para o outro?</strong><br>
+    R: Não, são renovados mensalmente (dia 1º).</p>
+
+    <p><strong>P: Dependentes usam os mesmos convites?</strong><br>
+    R: Sim, todos os membros da família compartilham o mesmo pool.</p>
+
+    <p><strong>P: As senhas são seguras?</strong><br>
+    R: Sim, usamos hash bcrypt.</p>
+
+    <!-- ============================================ -->
+    <!-- 14. GLOSSÁRIO -->
+    <!-- ============================================ -->
+    <h2 id="glossario">14. GLOSSÁRIO</h2>
+
+    <table>
+        <tr><th>Termo</th><th>Definição</th></tr>
+        <tr><td><strong>API</strong></td><td>Interface de programação para comunicação entre sistemas</td></tr>
+        <tr><td><strong>Cron</strong></td><td>Tarefa agendada executada automaticamente</td></tr>
+        <tr><td><strong>CRUD</strong></td><td>Create, Read, Update, Delete (operações básicas)</td></tr>
+        <tr><td><strong>Dashboard</strong></td><td>Painel principal com resumo do sistema</td></tr>
+        <tr><td><strong>Dependente</strong></td><td>Sócio vinculado a um proprietário</td></tr>
+        <tr><td><strong>Família</strong></td><td>Conjunto: proprietário + seus dependentes</td></tr>
+        <tr><td><strong>Hash</strong></td><td>Criptografia de senhas</td></tr>
+        <tr><td><strong>Inadimplente</strong></td><td>Sócio com mensalidades atrasadas</td></tr>
+        <tr><td><strong>Marca d'água</strong></td><td>Imagem de fundo na carteirinha (escudo)</td></tr>
+        <tr><td><strong>Pool de convites</strong></td><td>Total de convites disponíveis para a família</td></tr>
+        <tr><td><strong>Proprietário</strong></td><td>Sócio principal, criador da família</td></tr>
+        <tr><td><strong>QR Code</strong></td><td>Código de barras 2D para leitura rápida</td></tr>
+        <tr><td><strong>Responsivo</strong></td><td>Site que se adapta a diferentes tamanhos de tela</td></tr>
+        <tr><td><strong>Terceiro</strong></td><td>Serviço parceiro do clube</td></tr>
+        <tr><td><strong>Validade</strong></td><td>Data de expiração da carteirinha</td></tr>
+    </table>
+
+    <!-- ============================================ -->
+    <!-- CHECKLIST -->
+    <!-- ============================================ -->
+    <h2>✅ CHECKLIST DE IMPLANTAÇÃO</h2>
+    <ul>
+        <li><input type="checkbox"> XAMPP instalado e rodando</li>
+        <li><input type="checkbox"> Banco de dados criado (clube_sistema)</li>
+        <li><input type="checkbox"> Tabelas importadas com sucesso</li>
+        <li><input type="checkbox"> Usuário admin criado</li>
+        <li><input type="checkbox"> Pasta uploads com permissão de escrita</li>
+        <li><input type="checkbox"> Marca d'água enviada</li>
+        <li><input type="checkbox"> Cores das carteirinhas configuradas</li>
+        <li><input type="checkbox"> Cron configurado (renovação de convites)</li>
+        <li><input type="checkbox"> Teste de login funcionando</li>
+        <li><input type="checkbox"> Cadastro de sócio teste realizado</li>
+        <li><input type="checkbox"> Geração de carteirinha teste</li>
+        <li><input type="checkbox"> Validação de carteirinha teste</li>
+    </ul>
+
+    <hr>
+
+    <p><strong>Manual elaborado por:</strong> Equipe de Desenvolvimento<br>
+    <strong>Última atualização:</strong> 09/04/2026<br>
+    <strong>Versão do sistema:</strong> 2.0.0</p>
+
+    <script>
+        function copyToWord() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], {type: 'application/msword'});
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Manual_Clube.doc';
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+    </script>
+</body>
+</html>

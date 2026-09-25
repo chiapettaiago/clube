@@ -1,0 +1,41 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: none;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-top: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46a0 100%);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .table {
+        font-size: 12px;
+    }
+    
+    .btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}

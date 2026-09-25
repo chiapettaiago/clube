@@ -1,0 +1,77 @@
+text
+/clube/
+├── index.php
+├── config.php
+├── .htaccess
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── uploads/
+│   └── watermarks/
+├── includes/
+│   ├── header.php
+│   ├── footer.php
+│   ├── menu.php
+│   └── auth.php
+├── modules/
+│   ├── usuarios/
+│   ├── socios/
+│   ├── terceiros/
+│   ├── carteirinha/
+│   └── financeiro/ (futuro)
+└── vendor/ (phpqrcode, etc)
+
+
+C:/xampp/htdocs/clube/
+│
+├── index.php (login)
+├── dashboard.php
+├── config.php
+├── logout.php
+│
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── functions.js
+│   ├── uploads/
+│   └── watermarks/
+│       └── escudo.png (coloque sua logo aqui)
+│
+├── includes/
+│   ├── header.php
+│   ├── footer.php
+│   ├── menu.php
+│   └── auth.php
+│
+├── modules/
+│   ├── usuarios/
+│   │   ├── index.php
+│   │   ├── cadastrar.php
+│   │   ├── editar.php
+│   │   └── excluir.php
+│   │
+│   ├── socios/
+│   │   ├── index.php
+│   │   ├── cadastrar.php
+│   │   ├── editar.php
+│   │   ├── excluir.php
+│   │   └── tipos_socio.php
+│   │
+│   ├── terceiros/
+│   │   ├── index.php
+│   │   ├── cadastrar.php
+│   │   └── excluir.php
+│   │
+│   ├── carteirinha/
+│   │   ├── gerar.php
+│   │   ├── imprimir.php
+│   │   ├── validar.php
+│   │   └── configurar.php
+│   │
+│   └── config/
+│       └── watermark.php
+│
+└── vendor/ (bibliotecas - vamos criar manualmente)
+    ├── phpqrcode/
+    └── barcode/

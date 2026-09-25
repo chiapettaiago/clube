@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proposta Comercial - Sistema do Clube</title>
+  <style>
+    :root{
+      --bg:#f4f6f8;
+      --paper:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --accent:#0f766e;
+      --accent-2:#134e4a;
+      --line:#dbe3ea;
+      --soft:#eef7f6;
+      --warn:#fff7ed;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg, #eef3f6 0%, var(--bg) 100%);
+      color:var(--text);
+    }
+    .page{
+      max-width: 980px;
+      margin: 24px auto;
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:0 12px 35px rgba(15,23,42,.08);
+      overflow:hidden;
+    }
+    .topbar{
+      background:linear-gradient(135deg, var(--accent-2), var(--accent));
+      color:#fff;
+      padding:28px 32px;
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .brand h1{
+      margin:0 0 8px;
+      font-size:30px;
+      line-height:1.1;
+    }
+    .brand p{margin:0;color:rgba(255,255,255,.9)}
+    .meta{
+      text-align:right;
+      font-size:14px;
+      line-height:1.5;
+      color:rgba(255,255,255,.92);
+    }
+    .content{padding:32px}
+    h2{
+      margin:0 0 12px;
+      font-size:20px;
+      color:var(--accent-2);
+    }
+    p{line-height:1.6}
+    .editable{
+      padding:2px 4px;
+      border-radius:6px;
+      background:rgba(15,118,110,.06);
+      outline:none;
+    }
+    .editable:focus{box-shadow:0 0 0 2px rgba(15,118,110,.18)}
+    .field{display:block;width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font:inherit;color:var(--text);background:#fbfdfd}
+    .field:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(15,118,110,.14)}
+    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0 24px}
+    .form-group label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:5px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+      margin:18px 0 24px;
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:18px;
+      background:#fff;
+    }
+    .card strong{display:block;margin-bottom:8px;color:var(--accent-2)}
+    .card .value{
+      font-size:22px;
+      font-weight:700;
+      color:var(--accent);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:12px;
+    }
+    th, td{
+      border-bottom:1px solid var(--line);
+      padding:12px 14px;
+      vertical-align:top;
+      text-align:left;
+    }
+    th{
+      background:#f8fafc;
+      font-size:14px;
+      color:#334155;
+    }
+    tr:last-child td{border-bottom:none}
+    .note{
+      background:var(--warn);
+      border:1px solid #fed7aa;
+      border-radius:12px;
+      padding:14px 16px;
+      margin-top:18px;
+    }
+    .note strong{color:#9a3412}
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:24px 0 0;
+    }
+    .btn{
+      appearance:none;
+      border:none;
+      border-radius:999px;
+      padding:12px 18px;
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .btn.primary{background:var(--accent);color:#fff}
+    .btn.secondary{background:#e2e8f0;color:#0f172a}
+    .signature{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:24px;
+      margin-top:34px;
+    }
+    .sigline{
+      border-top:1px solid #94a3b8;
+      padding-top:10px;
+      min-height:54px;
+    }
+    .footer{
+      padding:18px 32px 32px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .small{font-size:13px;color:var(--muted)}
+    .right{text-align:right}
+    @media (max-width: 720px){
+      .content,.footer,.topbar{padding-left:18px;padding-right:18px}
+      .grid,.form-grid,.signature{grid-template-columns:1fr}
+      .meta,.right{text-align:left}
+    }
+    @media print{
+      body{background:#fff}
+      .page{margin:0;border:none;border-radius:0;box-shadow:none;max-width:none}
+      .actions{display:none}
+      .editable{background:transparent;padding:0}
+      .field{border:none;padding:0;background:transparent}
+      .topbar{border-radius:0}
+      a{color:inherit;text-decoration:none}
+      .note{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="topbar">
+      <div class="brand">
+        <h1 contenteditable="true" class="editable">Proposta Comercial - Sistema de Clube</h1>
+        <p contenteditable="true" class="editable">Solução modular para gestão administrativa, financeira e operacional.</p>
+      </div>
+      <div class="meta">
+        <div><strong>Data:</strong> <span contenteditable="true" class="editable">03 de setembro de 2026</span></div>
+        <div><strong>Validade:</strong> <span contenteditable="true" class="editable">15 dias</span></div>
+        <div><strong>Cliente:</strong> <span contenteditable="true" class="editable">Clube Várzea</span></div>
+      </div>
+    </section>
+
+    <section class="content">
+      <h2>Apresentação</h2>
+      <p contenteditable="true" class="editable">
+        Esta proposta apresenta a contratação de uma licença de uso para o sistema do clube, com estrutura modular, permitindo evolução conforme a necessidade da instituição.
+        O objetivo é manter o controle dos módulos atuais, acrescentar o módulo de auditoria e garantir condições claras para expansão futura.
+      </p>
+
+      <div class="form-grid">
+        <div class="form-group"><label for="contratante">Nome do contratante</label><input id="contratante" class="field" value="Clube Valoa"></div>
+        <div class="form-group"><label for="fornecedor">Nome do fornecedor/responsável</label><input id="fornecedor" class="field" value="Nome da empresa ou responsável"></div>
+        <div class="form-group"><label for="cnpj">CNPJ/CPF</label><input id="cnpj" class="field" value=""></div>
+        <div class="form-group"><label for="cidade">Cidade e estado</label><input id="cidade" class="field" value=""></div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <strong>Licença de uso</strong>
+          <div class="value editable" contenteditable="true">R$ 4.000,00</div>
+        </div>
+        <div class="card">
+          <strong>Mensalidade base do clube</strong>
+          <div class="value editable" contenteditable="true">R$ 295,00</div>
+        </div>
+      </div>
+
+      <h2>Condição Comercial</h2>
+      <p contenteditable="true" class="editable">
+        A licença de uso será contratada pelo valor de <strong>R$ 4.000,00</strong> (quatro mil reais).
+        A mensalidade será vinculada ao valor atual da mensalidade do clube, hoje em <strong>R$ 295,00</strong> (duzentos e noventa e cinco reais),
+        sendo reajustada de acordo com a atualização do valor praticado pelo clube.
+      </p>
+
+      <h2>Escopo do Sistema</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:34%">Módulo</th>
+            <th>Descrição</th>
+            <th style="width:22%">Valor adicional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td contenteditable="true" class="editable">Módulos atuais</td>
+            <td contenteditable="true" class="editable">Inclui todos os módulos já existentes no sistema, preservando a operação atual do clube.</td>
+            <td contenteditable="true" class="editable">Incluso</td>
+          </tr>
+          <tr>
+            <td contenteditable="true" class="editable">Módulo de auditoria</td>
+            <td contenteditable="true" class="editable">Registro e acompanhamento de ações, verificações e rastreabilidade de operações.</td>
+            <td contenteditable="true" class="editable">Incluso nesta proposta</td>
+          </tr>
+          <tr>
+            <td contenteditable="true" class="editable">Novos módulos futuros</td>
+            <td contenteditable="true" class="editable">Todo módulo adicional solicitado após a entrega inicial será tratado como item novo.</td>
+            <td contenteditable="true" class="editable">R$ 1.000,00 por módulo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid" style="margin-top:22px;">
+        <div class="card">
+          <strong>Valor por novo módulo</strong>
+          <input class="field value" value="R$ 1.000,00">
+        </div>
+        <div class="card">
+          <strong>Modelo de reajuste</strong>
+          <textarea class="field small" rows="3">A mensalidade acompanha a atualização do valor praticado pelo clube.</textarea>
+        </div>
+      </div>
+
+      <h2>Cláusulas da Contratação</h2>
+      <ol contenteditable="true" class="editable">
+        <li><strong>Objeto:</strong> contratação de licença de uso do sistema de gestão do clube, abrangendo os módulos atuais e o módulo de auditoria.</li>
+        <li><strong>Licença:</strong> a licença concede ao contratante o direito de utilizar o sistema durante a vigência da contratação, conforme as condições desta proposta.</li>
+        <li><strong>Valores:</strong> a licença de uso terá o valor de R$ 4.000,00 (quatro mil reais). A mensalidade inicial será de R$ 295,00 (duzentos e noventa e cinco reais).</li>
+        <li><strong>Reajuste:</strong> a mensalidade será reajustada sempre que houver alteração no valor da mensalidade praticada pelo clube, acompanhando o mesmo valor atualizado.</li>
+        <li><strong>Módulos adicionais:</strong> cada novo módulo solicitado e aprovado após a contratação inicial terá o custo de R$ 1.000,00 (um mil reais), salvo negociação escrita em sentido diverso.</li>
+        <li><strong>Suporte e manutenção:</strong> os serviços de suporte, manutenção e eventuais limites de atendimento deverão ser definidos entre as partes e poderão ser detalhados em documento complementar.</li>
+        <li><strong>Vigência e aceite:</strong> a contratação terá início na data do aceite ou assinatura. Esta proposta poderá ser ajustada pelas partes antes da assinatura definitiva.</li>
+      </ol>
+
+      <!--<div class="note">
+        <strong>Observação:</strong>
+        <span class="editable" contenteditable="true">
+          este documento foi preparado em HTML para facilitar edição, revisão e impressão. Você pode alterar textos, valores e nomes diretamente no navegador antes de salvar em PDF.
+        </span>
+      </div> -->
+
+      <h2>Resumo Financeiro</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th class="right">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td contenteditable="true" class="editable">Licença de uso</td>
+            <td class="right editable" contenteditable="true">R$ 4.000,00</td>
+          </tr>
+          <tr>
+            <td contenteditable="true" class="editable">Mensalidade inicial</td>
+            <td class="right editable" contenteditable="true">R$ 295,00</td>
+          </tr>
+          <tr>
+            <td contenteditable="true" class="editable">Novo módulo adicional</td>
+            <td class="right editable" contenteditable="true">R$ 1.000,00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="hint">Preencha os nomes abaixo antes de imprimir ou salvar em PDF.</p>
+      <div class="form-grid">
+        <div class="form-group"><label for="assinatura-clube">Nome e cargo - clube</label><input id="assinatura-clube" class="field" value=""></div>
+        <div class="form-group"><label for="assinatura-fornecedor">Nome e cargo - fornecedor</label><input id="assinatura-fornecedor" class="field" value=""></div>
+      </div>
+      <div class="signature">
+        <div>
+          <div class="sigline editable" contenteditable="true">Responsável pelo clube<br><br>Nome: ______________________________</div>
+        </div>
+        <div>
+          <div class="sigline editable" contenteditable="true">Responsável pela proposta<br><br>Nome: ______________________________</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" onclick="window.print()">Imprimir / Salvar em PDF</button>
+        <button class="btn secondary" onclick="document.body.focus()">Editar no navegador</button>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div contenteditable="true" class="editable">
+        Proposta preparada para edição livre. Para gerar PDF, use o botão de impressão ou o atalho do navegador.
+      </div>
+    </div>
+  </main>
+</body>
+</html>
